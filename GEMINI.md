@@ -56,7 +56,8 @@ IDIOMA DAS VAGAS: Português, Inglês, Espanhol (padrão) | [restringir]
 Sempre entregar em **Markdown estruturado**, com esta sequência fixa:
 
 1. **Cabeçalho da execução**: parâmetros usados nesta rodada (modalidade, janela, países).
-2. **Tabela de vagas**, colunas: `Vaga | Empresa | Modalidade | Local/País | Publicada em | Concorrência (estimativa) | Fit | Link`.
+2. **Tabela de vagas**, colunas com link nas primeiras posições para facilitar visualização:
+   `Vaga (Link Direto) | Empresa | Fit | Concorrência (estimativa) | Modalidade / Local | Publicada em`.
 3. **Observações de descarte**: quantas vagas foram excluídas e por quê (resumo, não listar uma a uma), ex.: "12 vagas descartadas: 7 por concorrência alta, 3 duplicadas, 2 fora da janela."
 4. **Próximos Passos**: as 3 vagas prioritárias recomendadas, com uma frase de por que aplicar primeiro.
 5. **Aviso obrigatório**: "Confirme disponibilidade direto na fonte antes de aplicar; vagas podem ser encerradas rapidamente."

@@ -42,7 +42,7 @@ Antes de iniciar a busca, carregue os parâmetros de [config/parametros.json](..
    - Atualizar `data/tracker.json` com as vagas selecionadas para manter histórico.
 7. **Formatação Estrita do Contrato de Saída:**
    - Cabeçalho de parâmetros
-   - Tabela de vagas
+   - Tabela de vagas com link nas primeiras posições (`Vaga (Link Direto) | Empresa | Fit | Concorrência | Modalidade / Local | Publicada em`)
    - Resumo de descartes
    - Próximos Passos (3 vagas prioritárias)
    - Aviso obrigatório de confirmação na fonte.
