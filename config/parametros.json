@@ -1,0 +1,19 @@
+{
+  "MODALIDADE": "remoto",
+  "PAISES_REGIOES": "Brasil + Exterior",
+  "CARGOS_ALVO": [
+    "Gerente de Projetos de TI",
+    "IT Project Manager",
+    "PMO Manager",
+    "Program Manager"
+  ],
+  "SETORES_PREFERENCIAIS": "nenhum (todos aceitos)",
+  "JANELA_PUBLICACAO_DIAS": 7,
+  "LIMITE_CONCORRENCIA": 100,
+  "QUANTIDADE_RESULTADOS": 12,
+  "IDIOMAS": [
+    "Português",
+    "Inglês",
+    "Espanhol"
+  ]
+}
