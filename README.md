@@ -1,109 +1,109 @@
 # Job Search Harness — Humberto C. Garcia
 
-> **Agente de pesquisa automatizada especializado em oportunidades remotas (Brasil e Internacional) e híbridas (região de Pouso Alegre/MG) para Gerência de Projetos de TI, PMO e Program Management.**
+> **Agente Autônomo de Pesquisa e Curadoria de Oportunidades Remotas (Brasil & Internacional) e Híbridas para Gerência de Projetos de TI, PMO e Program Management.**
 
-Este projeto foi construído para potencializar a recolocação profissional de **Humberto C. Garcia**, priorizando **vagas com baixa concorrência** (poucos candidatos visíveis, recência de publicação, nichadas) e **alto fit** com sua sólida trajetória de 25+ anos em liderança de infraestrutura de TI, migração de datacenters, cloud (AWS), governança, PMO corporativo e gestão de grandes fornecedores globais.
-
----
-
-## 🎯 Objetivo
-
-Eliminar o tempo gasto navegando manualmente em vagas saturadas (+100 candidatos) e entregar listas curadas, desduplicadas, com concorrência estimada e indicação precisa de fit para aplicação imediata.
+Este projeto combina **Engenharia de Prompt, Automação com Agentes de IA, Web Scraping com Playwright e Pipeline de Notificações SMTP** para criar uma rotina autônoma de busca de empregos. Ele prioriza **vagas com baixa concorrência** (poucos candidatos visíveis, recência de publicação, nichadas) e **alto fit** com o perfil executivo de **Humberto C. Garcia** (25+ anos liderando infraestrutura de TI, migração de datacenters, cloud AWS/Azure, governança e gestão de fornecedores globais).
 
 ---
 
-## 📂 Arquitetura do Workspace
+## 🎯 Destaques do Projeto (Portfolio Showcase)
+
+- 🤖 **Orquestração de Agente de IA:** Configuração de harness com persona, regras estritas de contrato de saída, governança de dados e deduplicação persistente.
+- 🌐 **Browser Automation (Playwright):** Raspagem headless do Indeed com técnicas anti-detecção (`--disable-blink-features=AutomationControlled`, headers customizados e queries diretas).
+- ⏰ **Execução Agendada em Segundo Plano:** Automação via Sidecar agendada (Cron: Segunda, Quarta e Sexta às 13:00 de Brasília) com permissões pré-aprovadas.
+- 📧 **Notificações por E-mail (SMTP):** Conversão automática de relatórios em Markdown para HTML estilizado, entregue diretamente no Gmail.
+- 📊 **Deduplicação Persistente:** Histórico em JSON (`data/tracker.json`) que previne alertas duplicados e acompanha status de candidaturas.
+
+---
+
+## 📂 Arquitetura do Repositório
 
 ```text
 Agente Job Search/
 ├── .agents/
 │   └── skills/
 │       └── job-search-harness/
-│           └── SKILL.md                  # Habilidade Antigravity registrada
+│           └── SKILL.md                  # Especificação da habilidade do agente
 ├── config/
 │   └── parametros.json                   # Parâmetros padrão de execução
 ├── data/
-│   ├── tracker.json                      # Base persistente de vagas e status
-│   └── historico_execucoes.md            # Log cronológico em markdown
+│   ├── tracker.json                      # Base persistente de vagas e histórico
+│   └── historico_execucoes.md            # Log cronológico das rodadas
+├── reports/                              # Relatórios gerados em Markdown/HTML
 ├── scripts/
-│   ├── search_apis.py                    # Busca automatizada em APIs públicas e RSS feeds
-│   └── tracker.py                        # Utilitário de deduplicação e controle de status
-├── .gitignore                            # Exclusões de arquivos temporários
-├── AGENTS.md                             # Regras do workspace para agentes
-├── GEMINI.md                             # Instruções, persona e contrato do Job Search Harness
+│   ├── search_apis.py                    # Busca em APIs públicas e feeds RSS
+│   ├── indeed_browser.py                 # Crawler headless via Playwright para Indeed Brasil
+│   ├── tracker.py                        # Módulo de deduplicação e controle de status
+│   └── send_email_report.py              # Parser Markdown-HTML e despachante SMTP
+├── .env.example                          # Modelo de variáveis de ambiente
+├── .gitignore                            # Proteção de credenciais e caches
+├── AGENTS.md                             # Regras de orquestração do workspace
+├── GEMINI.md                             # Persona, regras e contrato estrito de saída
 ├── perfil_humberto.md                    # Fonte única da verdade do perfil profissional
-├── prompt-job-search-harness-antigravity.md # Prompt mestre de especificação
+├── requirements.txt                      # Dependências Python
 └── README.md                             # Documentação do projeto
 ```
 
 ---
 
-## 👤 Perfil de Humberto (Resumo de Referência)
+## 👤 Perfil Profissional de Referência
 
 | Dimensão | Detalhes |
 |---|---|
-| **Cargo-alvo** | Gerente de Projetos de TI / PMO / Program Manager / IT Project Manager (Sênior) |
-| **Localização** | Pouso Alegre/MG (Foco: **100% Remoto Brasil/Exterior**; Secundário: Híbrido Sul de MG) |
-| **Experiência** | 25+ anos liderando projetos de TI em multinacionais (J&J, Mapfre, Equatorial, Goodyear, Gamesa, Aon Hewitt, EDS/HP, Cargill) |
-| **Competências Core** | Datacenter Tier III, Cloud (AWS/Azure), SAP, ServiceNow, Gestão de Fornecedores Globais, Economias R$2M-3M+/ano |
+| **Cargos-alvo** | Gerente de Projetos de TI / PMO Manager / Program Manager / IT Delivery |
+| **Modalidade** | Prioridade: **100% Remoto (Brasil e Global)**; Secundário: Híbrido Sul de MG |
+| **Experiência** | 25+ anos (J&J, Mapfre, Equatorial Energia, Goodyear, Gamesa, Aon Hewitt, EDS/HP, Cargill) |
+| **Competências Core** | Datacenter Tier III, Cloud (AWS/Azure), SAP, ServiceNow, Gestão de Fornecedores Globais, Otimização de Custos (R$2M-3M+/ano) |
 | **Formação** | MBA em Project Management (FGV - PMI 360h), Strategic Business Leadership (Ohio University), Gestão de SI (Unip) |
-| **Certificações** | ITIL v3, PSM I (Scrum.org), AWS, Fundamentos de IA Aplicada |
-| **Idiomas** | Português (Nativo), Inglês (C1 - Full Professional), Espanhol (Fluente/Bilíngue) |
-| **Pretensão** | Aberto a negociação (sem piso/teto pré-fixado) |
-
-*Para os detalhes completos, consulte [perfil_humberto.md](file:///c:/Users/LENOVO/OneDrive/Humberto/pessoal/Emprego/INTELIGENCIA%20ARTIFICIAL/Agente%20de%20IA/Agente%20Job%20Search/perfil_humberto.md).*
+| **Certificações** | ITIL v3, PSM I (Scrum.org), AWS Cloud, Fundamentos de IA Aplicada |
+| **Idiomas** | Português (Nativo), Inglês (C1 - Full Professional), Espanhol (Nativo/Bilíngue) |
 
 ---
 
-## 🔎 Repositórios Monitorados
+## ⚙️ Como Executar Localmente
 
-1. **LinkedIn Jobs** (Remoto, Gerente de Projetos / PMO, últimos 7 dias)
-2. **We Work Remotely**
-3. **Remote OK**
-4. **Himalayas**
-5. **Wellfound (AngelList Talent)**
-6. **Indeed** (Brasil e Internacional)
-7. **Gupy** (Brasil Remoto)
-8. **Catho**
-9. **Glassdoor**
-10. **Vagas.com**
-*(Fontes adicionais como PMAlliance, ProjectManagementJobs e EU Remote Jobs são incluídas sob demanda).*
-
----
-
-## ⚙️ Parâmetros de Execução
-
-Você pode alterar os parâmetros a qualquer momento em [config/parametros.json](file:///c:/Users/LENOVO/OneDrive/Humberto/pessoal/Emprego/INTELIGENCIA%20ARTIFICIAL/Agente%20de%20IA/Agente%20Job%20Search/config/parametros.json) ou simplesmente pedir no chat:
-
-```text
-MODALIDADE: remoto (padrão) | remoto + híbrido região Pouso Alegre/MG | todas
-PAÍSES/REGIÕES: Brasil + Exterior (padrão) | somente Brasil | somente Exterior
-CARGOS-ALVO: Gerente de Projetos de TI, IT Project Manager, PMO Manager, Program Manager
-SETORES PREFERENCIAIS: nenhum (todos aceitos) | [ex.: energia, farmacêutica, cloud]
-JANELA DE PUBLICAÇÃO: últimos 7 dias (padrão) | últimos 3 dias | últimos 15 dias
-LIMITE DE CONCORRÊNCIA: excluir vagas com 100+ candidatos visíveis
-QUANTIDADE DE RESULTADOS: 10-15 vagas (padrão)
-IDIOMA DAS VAGAS: Português, Inglês, Espanhol
+### 1. Clonar o Repositório
+```bash
+git clone https://github.com/<seu-usuario>/job-search-harness.git
+cd job-search-harness
 ```
 
+### 2. Criar e Ativar Ambiente Virtual
+```bash
+python -m venv .venv
+# No Windows:
+.venv\Scripts\activate
+# No Linux/Mac:
+source .venv/bin/activate
+```
+
+### 3. Instalar Dependências e Navegadores do Playwright
+```bash
+pip install -r requirements.txt
+playwright install chromium
+```
+
+### 4. Configurar Variáveis de Ambiente
+Copie o arquivo `.env.example` para `.env` e configure suas credenciais de e-mail (caso queira envio automático via Gmail SMTP):
+```bash
+cp .env.example .env
+```
+
+### 5. Executar os Módulos
+- **Busca em APIs abertas:**
+  ```bash
+  python scripts/search_apis.py
+  ```
+- **Busca no Indeed via Playwright:**
+  ```bash
+  python scripts/indeed_browser.py
+  ```
+- **Envio do relatório por e-mail:**
+  ```bash
+  python scripts/send_email_report.py
+  ```
+
 ---
 
-## 🚀 Como Executar
-
-Basta interagir diretamente no chat do Antigravity neste workspace:
-
-- **Execução padrão:** *"Buscar vagas"* ou *"Execute uma nova rodada de busca"*.
-- **Com parâmetros customizados:** *"Busque vagas remotas internacionais em inglês nos últimos 3 dias com foco em Cloud"*.
-- **Atualizar status:** *"Marque a vaga do Lifelancer como Candidatura Enviada"*.
-
----
-
-## 📋 Contrato Estrito de Saída
-
-Cada execução do agente entrega obrigatoriamente:
-1. **Cabeçalho da execução** com parâmetros adotados.
-2. **Tabela estruturada** com colunas:
-   `Vaga | Empresa | Modalidade | Local/País | Publicada em | Concorrência (estimativa) | Fit | Link`.
-3. **Observações de descarte** resumidas (quantidade excluída por alta concorrência, fora da janela ou duplicatas).
-4. **Próximos Passos** com as 3 vagas prioritárias para aplicar primeiro.
-5. **Aviso de confirmação** na fonte.
+## 📋 Licença
+Projeto pessoal desenvolvido para fins de pesquisa, automação de carreira e demonstração de competências em IA Aplicada e Gestão de Tecnologia.

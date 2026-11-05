@@ -5,6 +5,7 @@
 
 ## 1. Dados Básicos e Localização
 - **Nome:** Humberto C. Garcia
+- **E-mail:** humbgarcia@gmail.com
 - **Localização:** Pouso Alegre, Minas Gerais, Brasil
 - **Modalidades de Interesse:**
   - **Prioridade 1:** 100% Remoto (Brasil ou Exterior)

@@ -1,13 +1,19 @@
+# Secrets & Environment (NUNCA subir credenciais para o GitHub)
+.env
+*.env
+!.env.example
+
 # Python
 __pycache__/
 *.py[cod]
 *$py.class
-*.env
 .venv/
 venv/
 ENV/
 
-# System / IDE
+# System & Browser caches
+.playwright/
+ms-playwright/
 .DS_Store
 Thumbs.db
 *.swp
